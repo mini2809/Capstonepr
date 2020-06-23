@@ -24,8 +24,9 @@ export async function getdataWeatherbit(obj)
 	let fetchData=await fetch(url+obj.lat+'&lon='+obj.long+'&key='+key)
 	let data = await fetchData.text();
 	let Data = JSON.parse(data)
+	console.log(Data.data[0])
 	for(let i=0;i<=15;i++)
-	console.log(Data.data[i].weather);
+		console.log(Data.data[i].weather);
 }	
 
 

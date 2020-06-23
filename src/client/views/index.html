@@ -3,6 +3,40 @@
 		<title>capstone project</title>
 	</head>	
 	<body>
-		<h1>TRAVEL PLANNER</h1>
+		<div class= "container">
+		<div class="header"> 	
+			<h1>TRAVEL PLANNER<h1>
+			<h5>A handy tourist-guide</h5>
+		</div>
+		<div class="menu"></div>
+		<div class= "main">
+			<form action="">
+				<div class="input-wrap">
+					<input type="text" id="country" required/>
+					<label for="country">Country:</label>
+				</div>
+				<br><br><br>
+				<div class="input-wrap">
+					<input type="text" id="city" required/>
+					<label for="city">City:</label>
+				</div>
+				<br><br><br>
+				<div class="input-wrap">
+					<input type="text" id="start_date" required/>
+					<label for="start_date">Start Date:</label>
+				</div>
+				<br><br><br>
+				<div class="input-wrap">
+					<input type="text" id="end_date" required/>
+					<label for="end_date">End Date:</label>
+				</div>
+				<br><br><br>
+				<button id="button-style" onclick="return Client.handle_submit(event)"
+				onsubmit ="return Client.handle_submit(event)" >GO-ON</button>
+			</form>
+		</div>
+		<div class="footer">
+			<h5>this is a footer</h5>
+		</div>
 	</body>
 </html>

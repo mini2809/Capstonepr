@@ -1,0 +1,58 @@
+
+.header{
+	text-align: center;
+	grid-area: header;
+	padding: 20px;
+	background-color: #FFD1C1;
+	height: 70px;
+	width: 100%;
+	line-height: 10px;
+	/*width : 100%;*/
+
+}
+
+.menu{
+	grid-area: menu;
+	/*background-color: lightgrey;*/
+	/*width : 100%;*/
+}
+
+.footer{
+	grid-area: footer;
+	/*background-color: #FFD1C1;*/
+	/*width : 100%;*/
+}
+
+.main{
+	grid-area: main;
+	/*background-color: orange;*/
+	/*width : 100%;*/
+	padding: 20px;
+
+}
+
+.container{
+	display: grid;
+	grid-template-areas: 'header header header'
+				   'menu main main'
+				   'menu footer footer';
+   	line-height: 5px;
+
+}		
+
+#button-style{
+	border: none;
+	background-color: #FFD1C1;
+	font-size: 20px;
+	padding: 20px;
+	border-radius: 10px;
+}	
+
+input{
+	height: 50;
+	width: 300px;	
+	
+}
+
+
+

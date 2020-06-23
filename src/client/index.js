@@ -1,10 +1,11 @@
-import 'babel-polyfill'
-import { getdataGeoname } from '../client/js/api_handler.js'
-import { getdataWeatherbit} from '../client/js/api_handler.js'
+import { handle_submit } from '../client/js/form_handler.js'
+import  './styles/base.css'
+import './styles/input.css'
 
-name='rajnandgaon';
-getdataGeoname(name)
-.then(res=> {console.log(res)
-		return res;
-})
-.then(resp => getdataWeatherbit(resp))
+export {
+	handle_submit
+}
+
+
+
+
