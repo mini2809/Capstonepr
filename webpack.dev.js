@@ -5,10 +5,6 @@ const HtmlWebpackPlugin= require('html-webpack-plugin')
 module.exports={
 	entry: "./src/client/index.js",
 	mode: "development",
-	output:{
-		libraryTarget: 'var',
-		library: 'Client'
-	},
 	module:{
 		rules:[
 			{

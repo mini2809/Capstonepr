@@ -16,3 +16,11 @@ app.get('/',function(req,res){
 	res.sendFile('dist/index.html');
 })
 
+// app.get('/data',function(req,res){
+// let data = getDataPixa()
+// }) 
+	
+
+
+
+

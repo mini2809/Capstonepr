@@ -2,10 +2,10 @@
 .header{
 	text-align: center;
 	grid-area: header;
-	padding: 20px;
+	/*padding: 20px;*/
 	background-color: #FFD1C1;
 	height: 70px;
-	width: 100%;
+	/*width: 100%;*/
 	line-height: 10px;
 	/*width : 100%;*/
 
@@ -37,6 +37,7 @@
 				   'menu main main'
 				   'menu footer footer';
    	line-height: 5px;
+   	width: 100%;
 
 }		
 

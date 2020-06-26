@@ -6,6 +6,13 @@ export {
 	handle_submit
 }
 
+window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+	let submit = document.getElementById("button-style")
+	submit.addEventListener('click', handle_submit);
+});
+
+
 
 
 
