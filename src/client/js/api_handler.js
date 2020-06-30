@@ -20,28 +20,26 @@ const key='c1d26e97df11444c8fac6881f237df9e'
 const url=' https://api.weatherbit.io/v2.0/forecast/daily?lat='
 
 export async function getdataWeatherbit(obj , tripDays)
-{
+{	
 	let fetchData=await fetch(url+obj.lat+'&lon='+obj.long+'&key='+key)
 	let data = await fetchData.text();
 	let Data = JSON.parse(data)
-	let days;
-	if (tripDays>16)
-		days=15;
-	else
-		days=tripDays;
-	for(let i=0;i<=days;i++)
-		console.log(Data.data[i].weather);
+	console.log(Data)
+	return Data;	
 }	
-//daysBetweenDates(today,start_date)// 25 22
+
 export async function daysBetweenDates(s_date,e_date){
 	const msPerDay =24 * 60 * 60 * 1000;
-	let start = new Date(s_date).getTime()// 25
-	let end =  new Date(e_date).getTime()//22
+	let start = new Date(s_date).getTime()
+	let end =  new Date(e_date).getTime()
 	let diff =  (end - start) / msPerDay;
 	let daysLeft=Math.round(diff)
 	return daysLeft;
 }
 
+export async function randomInteger(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
 
 
 
