@@ -1,74 +1,94 @@
-	import 'babel-polyfill'
-	import { getdataGeoname } from './api_handler.js'
-	import { getdataWeatherbit} from './api_handler.js'
-	import { daysBetweenDates } from './api_handler.js'
-	import { randomInteger } from './api_handler.js'
-	import { apiPixacall } from './apiPixa'
-	import { postData } from './apiPixa'
+import 'babel-polyfill'
+import { getdataGeoname, getdataWeatherbit, daysBetweenDates, randomInteger} from './api_handler.js'
+import { apiPixacall, postData } from './apiPixa'
+
+// helper function to create map of images from folder media/icons
+function importAll(r) {
+  let images = {};
+  r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+  return images;
+}
+
+const images = importAll(require.context('../media/icons', false, /\.(png|jpe?g|svg)$/));
+
+
+
+export async function handle_submit(event){
+	// to avoid default behavior of onclick function
+	event.preventDefault()
+	console.log("button clicked")
+	// variable declarations
+	let country= document.getElementById("country").value
+	let city = document.getElementById("city").value
+	let start_date = document.getElementById("start_date").value
+	let end_date = document.getElementById("end_date").value
+	let result = document.getElementById("result");
+	let duration = document.getElementById("duration")
 	
+	let today = new Date();
+	let start= new Date(start_date).getTime()
+	let tod = today.getTime(today)
+	let end = new Date(end_date).getTime()
 
-	export async function handle_submit(event){
-		event.preventDefault()
-		let country= document.getElementById("country").value
-		let city = document.getElementById("city").value
-		let start_date = document.getElementById("start_date").value
-		let end_date = document.getElementById("end_date").value
-		let result = document.getElementById("result");
-
-		
-		let today = new Date();
-		let start= new Date(start_date).getTime()
-		let tod = today.getTime()
-		
+	if(start > end)
+		alert("enter valid dates : startdate cannot be less than end date")
+	else{
 		if(start >= tod)
-		{
-
+		{	//checking all the information are filled or not
 			if (city == "" || country == "" || start_date == ""|| end_date == "")
-				alert("enter data")
-			let diff =  await daysBetweenDates(today,start_date);
-			console.log("diff is:" + diff);
-			if( diff > 16)
+				alert("Fill all the necessary information")
+
+			let tripDays = await daysBetweenDates(start_date,end_date)
+			result.innerHTML = "Trip-Duration : "+tripDays;
+
+			//computing duration of trip 
+			let diff = await daysBetweenDates(today, start_date) 
+			duration.innerHTML = "Your trip is "+ (diff+1) +" day(s) away"
+
+			if(diff+ tripDays >= 16 )
 				alert("cannot predict beyond 16 days from today")
 			else{
-				let tripDays = await daysBetweenDates(start_date,end_date)
-				console.log("the trip is "+tripDays+ " days long");
-				result.innerHTML = "the trip is "+tripDays+  " days long";
 				getdataGeoname(city)
 				.then(res=> {
-						console.log(res)
-						return res;
-					})
+					console.log("geoname called")
+					console.log(res)
+					return res;
+				})
 				.then(resp => getdataWeatherbit(resp,tripDays))
 				.then( res =>{
 					let el = document.getElementById("weatherData")
-					if (tripDays > 16){
-						days=15;
+					let i;
+					el.innerHTML=""
+					for( i=0+diff+1; i<=diff+tripDays ; i++)
+					{	
+						let imageKey = res.data[i].weather.icon+".png" 
+						let icon=images[imageKey].default
+						el.innerHTML += res.data[i].datetime+' : '+ res.data[i].weather.description +' '+
+						"<img  class=\"icon\" src=\""+ icon +"\"/>"
+						+"<br/></br></br>"
 					}
-					else{
-						let days = tripDays;
-						let i;
-						for( i=0;i<=days;i++){
-							el.innerHTML += res.data[i].datetime+' : '+ res.data[i].weather.description +' '+
-							"<img  class=\"icon\" src=\"icons/"+res.data[i].weather.icon+".png \" />"
-							+"<br/></br></br>"
-					 		}
-						}
-					})
-				.then( await apiPixacall({'coun':country,'city': city})
-				.then( res => {
-						console.log(res)
+				})
+				.then(
+					await apiPixacall({'coun':country,'city': city})
+					.then( res =>{
+						// console.log(res)
+						let hit = res.hits.length
 						let element = document.getElementById("image")
-						console.log(element);
 						element.classList.add('img')
-						element.src = res.hits[ran].webformatURL;	
-					}))
-			}
-			
-				
+						randomInteger(0,hit).then(ran =>{
+							//console.log(ran)
+							element.src = res.hits[ran].webformatURL;
+						})
+
+					})
+				)
+			 }
+
 		}
 		else
-			alert("trips be planned in future only")
-	}
+			alert("trips can be planned in future only!")
+		}
+}	
 
 
 

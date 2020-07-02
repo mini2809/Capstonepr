@@ -1,19 +1,20 @@
- export async function postData(url,text){	
+const fetch = require('node-fetch');
+//sending users input to server for calling pixabay api
+ export async function postData(url,textObj){
 	const response = await fetch(url,{
 		method: 'POST',
 		credentials: 'same-origin',
 		headers:{
 			"Content-type":'application/json',
 		},
-		body: JSON.stringify(text),
+		body: JSON.stringify(textObj),
 	})
 	try{
 		const newData = await response.json()
-		console.log(newData)
+		//console.log(newData)
 		return newData;
 	}
 	catch(error){
-		console.log("vaibhav")
 		console.log(error);
 	}
 }

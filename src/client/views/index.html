@@ -34,19 +34,36 @@
 					<label for="end_date">End Date:</label>
 				</div>
 				
-				<h6> Date valid forms: month-name dateno fullyear / dateno month-name fullyear </h6>
+				<h6> Valid input types: July 2, 2020 | 2 July, 2020 | 2 July 2020 </h6>
 				<br><br><br>
-				<button id="button-style">GO-ON</button>
+				<button id="button">GO-ON</button>
 				
 			</form>
 			<h3>Result:</h3>
 			<div id= "result"></div>
+			<br><br>
+			<div id="duration"></div>
 			<br/><br/><br/>
+			<h4>weather forecast for your trip:  </h4>
 			<div id= "weatherData">
 				<div id ="x"></div>
 			</div>
 		</div>
 		<div class="footer">
+			<h6> DISCLAIMER: it can predict weather only upto 16 days from currentdate</h6>
 		</div>
+		<script>
+			if (  '%NODE_ENV%' || '%NODE_ENV%' === 'development') {
+			
+			} else {
+				if('serviceWorker' in navigator){
+					window.addEventListener('load',()=>{
+						navigator.serviceWorker.register('/service-worker.js');
+					});
+				}   
+			}
+			
+		</script>
+	</body>
 	</body>
 </html>
