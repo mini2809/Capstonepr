@@ -16,7 +16,7 @@ const images = importAll(require.context('../media/icons', false, /\.(png|jpe?g|
 export async function handle_submit(event){
 	// to avoid default behavior of onclick function
 	event.preventDefault()
-	console.log("button clicked")
+
 	// variable declarations
 	let country= document.getElementById("country").value
 	let city = document.getElementById("city").value
@@ -50,8 +50,6 @@ export async function handle_submit(event){
 			else{
 				getdataGeoname(city)
 				.then(res=> {
-					console.log("geoname called")
-					console.log(res)
 					return res;
 				})
 				.then(resp => getdataWeatherbit(resp,tripDays))
@@ -71,12 +69,10 @@ export async function handle_submit(event){
 				.then(
 					await apiPixacall({'coun':country,'city': city})
 					.then( res =>{
-						// console.log(res)
 						let hit = res.hits.length
 						let element = document.getElementById("image")
 						element.classList.add('img')
 						randomInteger(0,hit).then(ran =>{
-							//console.log(ran)
 							element.src = res.hits[ran].webformatURL;
 						})
 

@@ -7,7 +7,6 @@ export {
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    console.log('DOM fully loaded and parsed');
     let submit = document.getElementById("button")
 	submit.addEventListener('click', handle_submit);
 });

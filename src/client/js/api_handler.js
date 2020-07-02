@@ -7,10 +7,11 @@ const username = 'mini928'
 export async function getdataGeoname(city){
 	let obj={}
 	let fetchData = await fetch(Url+'name='+city+'&username=mini928&countryCode=IN&maxRows=10&style=SHORT')
+	
+	// TODO: change variable name DATA
 	let data = await fetchData.text();
-	console.log(data)
 	let Data=JSON.parse(data)
-	console.log(Data)
+
 	let lat =Data.geonames[0].lat
 	let long =Data.geonames[0].lng
 	obj.lat=lat
@@ -24,9 +25,10 @@ const url = 'https://api.weatherbit.io/v2.0/forecast/daily?lat='
 export async function getdataWeatherbit(obj , tripDays)
 {	
 	let fetchData=await fetch(url+obj.lat+'&lon='+obj.long+'&key='+key)
+
+	//TODO: change variable name data
 	let data = await fetchData.text();
 	let Data = JSON.parse(data)
-	//console.log("Weather data"+ Data)
 	return Data;	
 }	
 

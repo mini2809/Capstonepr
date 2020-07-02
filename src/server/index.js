@@ -25,8 +25,6 @@ app.get('/',function(req,res){
 app.post('/test',async function(req,res){
 	let obj = req.body
 	let data = await getDataPixa(obj)
-	console.log("------------------------ Pixa data --------------------")
-	console.log(data)  
 	res.send(data);
 }) 
 	
