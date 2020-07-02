@@ -11,8 +11,6 @@ function importAll(r) {
 
 const images = importAll(require.context('../media/icons', false, /\.(png|jpe?g|svg)$/));
 
-
-
 export async function handle_submit(event){
 	// to avoid default behavior of onclick function
 	event.preventDefault()
@@ -20,21 +18,25 @@ export async function handle_submit(event){
 	// variable declarations
 	let country= document.getElementById("country").value
 	let city = document.getElementById("city").value
+
 	let start_date = document.getElementById("start_date").value
 	let end_date = document.getElementById("end_date").value
+	let today_date = new Date();
+
 	let result = document.getElementById("result");
 	let duration = document.getElementById("duration")
 	
-	let today = new Date();
 	let start= new Date(start_date).getTime()
-	let tod = today.getTime(today)
+	let today = today_date.getTime(today_date)
 	let end = new Date(end_date).getTime()
 
+
 	if(start > end)
-		alert("enter valid dates : startdate cannot be less than end date")
+		alert("enter valid dates : start date should be less than end date")
 	else{
-		if(start >= tod)
-		{	//checking all the information are filled or not
+		if(start >= today)
+		{	
+			//checking all the information are filled or not
 			if (city == "" || country == "" || start_date == ""|| end_date == "")
 				alert("Fill all the necessary information")
 
@@ -42,7 +44,7 @@ export async function handle_submit(event){
 			result.innerHTML = "Trip-Duration : "+tripDays;
 
 			//computing duration of trip 
-			let diff = await daysBetweenDates(today, start_date) 
+			let diff = await daysBetweenDates(today_date, start_date) 
 			duration.innerHTML = "Your trip is "+ (diff+1) +" day(s) away"
 
 			if(diff+ tripDays >= 16 )
