@@ -8,49 +8,41 @@
 			<h1>TRAVEL PLANNER<h1>
 			<h5>A handy tourist-guide</h5>
 		</div>
-		<div class="menu"></div>
 		<div class= "main">
 			<div >
 				<img id ="image" />	
 			</div>
-			<form action="">
+			<form class="form-travel" action="">
 				<div class="input-wrap">
-					<input type="text" id="country" required/>
-					<label for="country">Country:</label>
+					<label for="Country">Country</label>
+					<input type="text" id="country" placeholder="ex. India"required/>
+					
 				</div>
-				<br><br><br>
 				<div class="input-wrap">
-					<input type="text" id="city" required/>
-					<label for="city">City:</label>
+					<label for="City">City</label>
+					<input type="text" id="city" placeholder="ex. Mumbai" required/>
+					
 				</div>
-				<br><br><br>
 				<div class="input-wrap">
-					<input type="text" id="start_date" required/>
-					<label for="start_date">Start Date:</label>
+					<label for="Start-Date">Start Date</label>
+					<input type="date" id="start_date" required/>
 				</div>
-				<br><br><br>
 				<div class="input-wrap">
-					<input type="text" id="end_date" required/>
-					<label for="end_date">End Date:</label>
+					<label for="End-Date">End Date</label>
+					<input type="date" id="end_date"placeholder="dd-mm-yyyy" value=""min="1997-01-01" max="2030-12-31"required/>
+					
 				</div>
 				
-				<h6> Valid input types: July 2, 2020 | 2 July, 2020 | 2 July 2020 </h6>
-				<br><br><br>
-				<button id="button">GO-ON</button>
+				<button id="button">Search</button>
 				
 			</form>
-			<h3>Result:</h3>
 			<div id= "result"></div>
-			<br><br>
 			<div id="duration"></div>
-			<br/><br/><br/>
-			<h4>weather forecast for your trip:  </h4>
 			<div id= "weatherData">
 				<div id ="x"></div>
 			</div>
 		</div>
 		<div class="footer">
-			<h6> DISCLAIMER: it can predict weather only upto 16 days from currentdate</h6>
 		</div>
 		<script>
 			if (  '%NODE_ENV%' || '%NODE_ENV%' === 'development') {

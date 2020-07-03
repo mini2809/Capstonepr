@@ -17,11 +17,6 @@ body{
 	font-size: 10px;
 }
 
-.menu{
-	grid-area: menu;
-	/*background-color: lightgrey;*/
-	/*width : 100%;*/
-}
 
 .footer{
 	grid-area: footer;
@@ -30,40 +25,14 @@ body{
 }
 
 .main{
-	grid-area: main;
-	/*background-color: orange;*/
-	/*width : 100%;*/
 	padding: 20px;
-
 }
 
 .container{
-	display: grid;
-	grid-template-areas: 'header header header'
-				   'menu main main'
-				   'menu footer footer';
    	line-height: 5px;
    	width: 100%;
-
 }		
 
-#button{
-	border: none;
-	background-color: #FFD1C1;
-	font-size: 20px;
-	padding: 20px;
-	border-radius: 10px;
-}	
-
-#button:hover{
-	background-color: grey;
-	color: black;
-}
-input{
-	height: 50;
-	width: 300px;	
-	
-}
 
 .icon{
 	height: 30px;
@@ -71,4 +40,8 @@ input{
 	padding-top: 10px;
 }
 
-
+.form-travel{
+	width: max-content;
+	margin: 0 auto;
+	margin-top: 200px;
+}

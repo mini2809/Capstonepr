@@ -46,7 +46,6 @@ export async function handle_submit(event){
 			//computing duration of trip 
 			let diff = await daysBetweenDates(today_date, start_date) 
 			duration.innerHTML = "Your trip is "+ (diff+1) +" day(s) away"
-
 			if(diff+ tripDays >= 16 )
 				alert("cannot predict beyond 16 days from today")
 			else{

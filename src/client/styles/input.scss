@@ -7,35 +7,31 @@
 }
 .input-wrap {
   position: relative;
-  width: 250px;
-  height: 40px;
-  line-height: 50px;
+  display: inline;
+  padding: 2px;
+  margin-left: 15px;
+  float: left;
 }
 
 label {
-	font-family: sans-serif;
-	position: absolute;
-	top: 0;
-	left: 0;
-	color: lightgrey;
-	transition: 0.2s all;
-	cursor: text;
-} 
+  display: block;
+  padding: 8px 0;
+  font-size: 12px;
+}
+
 input {
-  border: 0;
   outline: 0;
-  border-bottom: 2px solid lightgrey;
+  border: 1px solid lightgrey;
+  border-radius: 2px;
   box-shadow: none;
-  padding: 0.5rem 0;
+  width: 250px;
+  height: 40px;
+  padding-left: 10px;
+  color: grey;
  }
 
-input:invalid {
-	outline: 0;
-	color: #ff2300;
-	border-color: lightgrey;
-}
-input:focus,
-input:valid {
+
+input:focus{
   border-color: black;
 
 }
@@ -46,6 +42,23 @@ input:valid~label {
   color: pink;
   font-family: sans-serif;
   
+}
+
+
+#button{
+  border: none;
+  background-color: #FFD1C1;
+  height: 40px;
+  font-size: 15px;
+  border: 0px solid lightgrey;
+  border-radius: 4px;
+  padding: 0 20px;
+  margin-top: 23px;
+  margin-left: 20px;
+} 
+
+#button:hover{
+
 }
 
 
