@@ -9,13 +9,11 @@
 			<h5>A handy tourist-guide</h5>
 		</div>
 		<div class= "main">
-			<div >
-				<img id ="image" />	
-			</div>
+			
 			<form class="form-travel" action="">
 				<div class="input-wrap">
 					<label for="Country">Country</label>
-					<input type="text" id="country" placeholder="ex. India"required/>
+					<input type="text" id="country" placeholder="ex. India" required/>
 					
 				</div>
 				<div class="input-wrap">
@@ -36,12 +34,29 @@
 				<button id="button">Search</button>
 				
 			</form>
-			<div id= "result"></div>
-			<div id="duration"></div>
-			<div id= "weatherData">
-				<div id ="x"></div>
+
+		<div class="result">
+			<div class="tripDetails">
+				<div class="image">
+					<img id="image" class="cityImage" src="https://pixabay.com/get/54e4d7454851aa14f1dc84609629307f163cd8e2534c704c7c2c7cd29248c651_640.jpg">
+				</div>
+				<div class="description">
+					<div class="cityName" id="cityName">Your trip to Bhilai!</div>
+					<div class="countryName" id="countryName">India</div>
+					<div class="duration" id="duration">5 days long</div>
+					<div class="daysLeft" id="daysLeft">2 days left</div>
+				</div>
 			</div>
+			<div class="weatherData" id= "weatherData">
+				<div class="item">
+					Vaibhav
+				</div>
+			</div>
+		</div>	
+
 		</div>
+
+
 		<div class="footer">
 		</div>
 		<script>

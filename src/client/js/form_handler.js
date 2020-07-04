@@ -23,8 +23,6 @@ export async function handle_submit(event){
 	let end_date = document.getElementById("end_date").value
 	let today_date = new Date();
 
-	let result = document.getElementById("result");
-	let duration = document.getElementById("duration")
 	
 	let start= new Date(start_date).getTime()
 	let today = today_date.getTime(today_date)
@@ -41,11 +39,15 @@ export async function handle_submit(event){
 				alert("Fill all the necessary information")
 
 			let tripDays = await daysBetweenDates(start_date,end_date)
-			result.innerHTML = "Trip-Duration : "+tripDays;
+			document.getElementById("duration").innerHTML = "Trip-Duration : "+tripDays;
+			document.getElementById("cityName").innerHTML = city;
+			document.getElementById("countryName").innerHTML = country;
 
 			//computing duration of trip 
 			let diff = await daysBetweenDates(today_date, start_date) 
-			duration.innerHTML = "Your trip is "+ (diff+1) +" day(s) away"
+			document.getElementById("daysLeft").innerHTML = "Your trip is "+ (diff+1) +" day(s) away"
+
+
 			if(diff+ tripDays >= 16 )
 				alert("cannot predict beyond 16 days from today")
 			else{
@@ -66,13 +68,13 @@ export async function handle_submit(event){
 						"<img  class=\"icon\" src=\""+ icon +"\"/>"
 						+"<br/></br></br>"
 					}
-				})
+				}) 
 				.then(
 					await apiPixacall({'coun':country,'city': city})
 					.then( res =>{
 						let hit = res.hits.length
 						let element = document.getElementById("image")
-						element.classList.add('img')
+						element.classList.add('cityImage')
 						randomInteger(0,hit).then(ran =>{
 							element.src = res.hits[ran].webformatURL;
 						})
