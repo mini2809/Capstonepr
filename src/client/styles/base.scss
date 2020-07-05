@@ -29,7 +29,7 @@ body{
 .container{
 	margin: 0 auto;
    	line-height: 5px;
-   	width: max-content;
+   	/*width: max-content;*/
 }		
 
 
@@ -42,36 +42,38 @@ body{
 .form-travel{
 	width: max-content;
 	margin-top: 200px;
-
-	/* TEMPORARY*/
-	border: 2px solid black;
+}
+.transClass{
+ 	transition: transform 0.6s;
+	transform: translateY(-25%)
 }
 
-
-
+#result{
+	visibility: hidden;
+}
 .result{
 	margin-top: 30px;
 	padding: 0 100px;
+
 	.tripDetails{
 		width: auto;
-		height: 200px;
+		height: auto;
 		margin-bottom: 20px;
-		border-bottom: 2px solid black;
+		border-bottom: 1px solid grey;
 		display: flex;
 		justify-content: space-around;
 		flex-direction: row;
+		padding: 0 50px;
 
 	}
 	.image{
-		/* TEMPORARY*/
-		border: 2px solid black;
-		width: 60%;
-		height: 150px;
+		width: 50%;
+		height: 200px;
 		margin: 10px; 
 
 		.cityImage{
-			width: 200px;
-			height: 150px;
+			width: 100%;
+			height: 100%;
 			margin-left: auto;
 			margin-right: auto;
 			display: block;
@@ -79,23 +81,32 @@ body{
 		}
 	}
 	.description{
-		/* TEMPORARY*/
-		border: 2px solid black;
-		width: 40%;
-		height: 100px;
-		line-height: 20px;
+		border-left: 1px solid grey;
+		width: 50%;
+		line-height: 40px;
 		margin: 10px;
 		padding: 10px;
 
 		.cityName{
 			font-size: 30px;
+			float: left;
+			display: inline;
+		}
+		.countryName{
+			font-size: 30px;
+		}
+		.duration{
+			/* TODO: style this*/
+		}
+		.daysLeft{
+			.int{
+				font-size: 30px;
+				display: inline;
+			}
 		}
 	}
 }
 .weatherData{
 	.item{
-		width: 200px;
-		height: 100px;
-		background-color: red;
 	}
 }

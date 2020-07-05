@@ -11,37 +11,34 @@ function importAll(r) {
 
 const images = importAll(require.context('../media/icons', false, /\.(png|jpe?g|svg)$/));
 
+
 export async function handle_submit(event){
 	// to avoid default behavior of onclick function
 	event.preventDefault()
-
 	// variable declarations
 	let country= document.getElementById("country").value
 	let city = document.getElementById("city").value
 
 	let start_date = document.getElementById("start_date").value
 	let end_date = document.getElementById("end_date").value
-	let today_date = new Date();
+	let today_date_obj = new Date();
+	let today_date = today_date_obj.getFullYear()+'-'+(today_date_obj.getMonth()+1)+'-'+today_date_obj.getDate();
 
-	
 	let start= new Date(start_date).getTime()
-	let today = today_date.getTime(today_date)
+	let today = new Date(today_date).getTime()
 	let end = new Date(end_date).getTime()
-
 
 	if(start > end)
 		alert("enter valid dates : start date should be less than end date")
 	else{
-		if(start >= today)
-		{	
 			//checking all the information are filled or not
 			if (city == "" || country == "" || start_date == ""|| end_date == "")
 				alert("Fill all the necessary information")
 
 			let tripDays = await daysBetweenDates(start_date,end_date)
 			document.getElementById("duration").innerHTML = "Trip-Duration : "+tripDays;
-			document.getElementById("cityName").innerHTML = city;
-			document.getElementById("countryName").innerHTML = country;
+			document.getElementById("cityName").innerHTML = "Your Trip to "+"<strong>"+city+"</strong>" + ",";
+			document.getElementById("countryName").innerHTML = "<strong>"+country+"</strong>";
 
 			//computing duration of trip 
 			let diff = await daysBetweenDates(today_date, start_date) 
@@ -55,18 +52,17 @@ export async function handle_submit(event){
 				.then(res=> {
 					return res;
 				})
-				.then(resp => getdataWeatherbit(resp,tripDays))
+				.then(resp => getdataWeatherbit(resp,tripDays)) 
 				.then( res =>{
-					let el = document.getElementById("weatherData")
+					let el = document.getElementById("weatherData") 
 					let i;
 					el.innerHTML=""
 					for( i=0+diff+1; i<=diff+tripDays ; i++)
 					{	
 						let imageKey = res.data[i].weather.icon+".png" 
-						let icon=images[imageKey].default
+						let icon = images[imageKey].default
 						el.innerHTML += res.data[i].datetime+' : '+ res.data[i].weather.description +' '+
 						"<img  class=\"icon\" src=\""+ icon +"\"/>"
-						+"<br/></br></br>"
 					}
 				}) 
 				.then(
@@ -75,7 +71,7 @@ export async function handle_submit(event){
 						let hit = res.hits.length
 						let element = document.getElementById("image")
 						element.classList.add('cityImage')
-						randomInteger(0,hit).then(ran =>{
+						randomInteger(0,hit-1).then(ran =>{
 							element.src = res.hits[ran].webformatURL;
 						})
 
@@ -84,14 +80,12 @@ export async function handle_submit(event){
 			 }
 
 		}
-		else
-			alert("trips can be planned in future only!")
-		}
 }	
 
-
-
-
-
-
-
+export function handle_transition(event){
+	event.preventDefault()
+	let x= document.getElementById("result")
+	let y= document.getElementById("main-content")	
+	x.setAttribute('style','visibility: visible');
+	y.classList.add('transClass');
+}

@@ -3,61 +3,60 @@
 		<title>capstone project</title>
 	</head>	
 	<body>
-		<div class= "container">
-		<div class="header"> 	
-			<h1>TRAVEL PLANNER<h1>
-			<h5>A handy tourist-guide</h5>
-		</div>
-		<div class= "main">
+		<div class= "container"> 
+			<div class="header"> 	
+				<h1>TRAVEL PLANNER<h1>
+				<h5>A handy tourist-guide</h5>
+			</div>
 			
-			<form class="form-travel" action="">
-				<div class="input-wrap">
-					<label for="Country">Country</label>
-					<input type="text" id="country" placeholder="ex. India" required/>
-					
-				</div>
-				<div class="input-wrap">
-					<label for="City">City</label>
-					<input type="text" id="city" placeholder="ex. Mumbai" required/>
-					
-				</div>
-				<div class="input-wrap">
-					<label for="Start-Date">Start Date</label>
-					<input type="date" id="start_date" required/>
-				</div>
-				<div class="input-wrap">
-					<label for="End-Date">End Date</label>
-					<input type="date" id="end_date"placeholder="dd-mm-yyyy" value=""min="1997-01-01" max="2030-12-31"required/>
-					
-				</div>
+			<div class= "main" id="main-content">
 				
-				<button id="button">Search</button>
-				
-			</form>
+				<form class="form-travel" id="form-travel" action="">
+					<div class="input-wrap">
+						<label for="Country">Country</label>
+						<input type="text" id="country" placeholder="ex. India" value="India" required/>
+						
+					</div>
+					<div class="input-wrap">
+						<label for="City">City</label>
+						<input type="text" id="city" placeholder="ex. Mumbai" value="Mumbai" required/>
+						
+					</div>
+					<div class="input-wrap">
+						<label for="Start-Date">Start Date</label>
+						<input type="date" id="start_date" required/>
+					</div>
+					<div class="input-wrap">
+						<label for="End-Date">End Date</label>
+						<input type="date" id="end_date"placeholder="dd-mm-yyyy" value=""min="1997-01-01" max="2030-12-31"required/>
+						
+					</div>
+					
+					<button id="button">Search</button>
+					
+				</form>
 
-		<div class="result">
-			<div class="tripDetails">
-				<div class="image">
-					<img id="image" class="cityImage" src="https://pixabay.com/get/54e4d7454851aa14f1dc84609629307f163cd8e2534c704c7c2c7cd29248c651_640.jpg">
-				</div>
-				<div class="description">
-					<div class="cityName" id="cityName">Your trip to Bhilai!</div>
-					<div class="countryName" id="countryName">India</div>
-					<div class="duration" id="duration">5 days long</div>
-					<div class="daysLeft" id="daysLeft">2 days left</div>
-				</div>
+				<div class="result" id="result">
+					<div class="tripDetails">
+						<div class="image">
+							<img src="" id="image" />
+						</div>
+						<div class="description">
+							<div class="cityName" id="cityName"></div>
+							<div class="countryName" id="countryName"></div>
+							<div class="duration" id="duration"></div>
+							<div class="daysLeft" id="daysLeft">
+								<div class="int"></div>
+							</div>
+						</div>
+					</div>
+					<div class="weatherData" id= "weatherData">
+						<div class="item"></div>
+					</div>
+				</div>	
 			</div>
-			<div class="weatherData" id= "weatherData">
-				<div class="item">
-					Vaibhav
-				</div>
-			</div>
-		</div>	
 
-		</div>
-
-
-		<div class="footer">
+			<div class="footer"></div>
 		</div>
 		<script>
 			if (  '%NODE_ENV%' || '%NODE_ENV%' === 'development') {
@@ -71,6 +70,5 @@
 			}
 			
 		</script>
-	</body>
 	</body>
 </html>

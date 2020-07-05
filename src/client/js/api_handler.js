@@ -29,7 +29,6 @@ export async function getdataWeatherbit(obj , tripDays)
 
 export function daysBetweenDates(s_date,e_date){
 	// takes start_date(string) and end_date(string) as input returns number of dats (int)
-
 	const msPerDay =24 * 60 * 60 * 1000;
 	let start = new Date(s_date).getTime()
 	let end =  new Date(e_date).getTime()
