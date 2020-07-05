@@ -10,11 +10,11 @@ export {
 setInputDates();
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    let submit = document.getElementById("button")
+    let submit = document.getElementById("submit_button")
 
 	submit.addEventListener('click', handle_submit);
-	submit.addEventListener('click',function temp(event){
-		handle_transition(event);
-	});
+	// submit.addEventListener('click',function temp(event){
+	// 	handle_transition(event);
+	// });
 });
 

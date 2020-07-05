@@ -5,21 +5,20 @@
 	font-family: sans-serif;
 	padding-bottom: 5px;
 	padding-top: 10px;
+	width: 100%;
 }
-
 body{
 	margin : 0;
 	padding: 0;
 }
 
-.text{
-	font-size: 10px;
+h2{
+	text-align: center;
+	line-height: 30px;
 }
 
-
-.footer{
-	/*background-color: #FFD1C1;*/
-	/*width : 100%;*/
+.text{
+	font-size: 10px;
 }
 
 .main{
@@ -29,7 +28,6 @@ body{
 .container{
 	margin: 0 auto;
    	line-height: 5px;
-   	/*width: max-content;*/
 }		
 
 
@@ -40,34 +38,34 @@ body{
 }
 
 .form-travel{
-	width: max-content;
-	margin-top: 200px;
-}
-.transClass{
- 	transition: transform 0.6s;
-	transform: translateY(-25%)
+	margin-top: 10px;
+	width: auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 #result{
 	visibility: hidden;
 }
+
 .result{
 	margin-top: 30px;
-	padding: 0 100px;
-
 	.tripDetails{
 		width: auto;
 		height: auto;
 		margin-bottom: 20px;
 		border-bottom: 1px solid grey;
+		justify-content: center;
 		display: flex;
-		justify-content: space-around;
 		flex-direction: row;
-		padding: 0 50px;
-
+		flex-wrap: wrap;
 	}
+	
+	
 	.image{
-		width: 50%;
+		width: 300px;
 		height: 200px;
 		margin: 10px; 
 
@@ -82,7 +80,8 @@ body{
 	}
 	.description{
 		border-left: 1px solid grey;
-		width: 50%;
+		width: 300px;
+		height: 200px;
 		line-height: 40px;
 		margin: 10px;
 		padding: 10px;
@@ -107,6 +106,32 @@ body{
 	}
 }
 .weatherData{
-	.item{
+	text-align: center;
+}
+
+@media only screen and (max-width: 900px){
+	.form-travel{
+		flex-direction: column;
+	}
+	.weatherData{
+		text-align: left;
 	}
 }
+@media only screen and (max-width: 700px) {
+	
+	.result .description{
+		border-top: 1px solid grey;
+		border-left: 0;
+	}
+	.result .tripDetails{
+		justify-content: start;
+	}
+}
+
+@media only screen and (max-width: 300px){
+	.header{
+		font-size: 10px;
+	}
+}
+
+

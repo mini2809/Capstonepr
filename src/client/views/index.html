@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<title>capstone project</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>	
 	<body>
 		<div class= "container"> 
@@ -12,34 +13,35 @@
 			<div class= "main" id="main-content">
 				
 				<form class="form-travel" id="form-travel" action="">
-					<div class="input-wrap">
-						<label for="Country">Country</label>
-						<input type="text" id="country" placeholder="ex. India" value="India" required/>
 						
-					</div>
-					<div class="input-wrap">
-						<label for="City">City</label>
-						<input type="text" id="city" placeholder="ex. Mumbai" value="Mumbai" required/>
-						
-					</div>
-					<div class="input-wrap">
-						<label for="Start-Date">Start Date</label>
-						<input type="date" id="start_date" required/>
-					</div>
-					<div class="input-wrap">
-						<label for="End-Date">End Date</label>
-						<input type="date" id="end_date"placeholder="dd-mm-yyyy" value=""min="1997-01-01" max="2030-12-31"required/>
-						
-					</div>
-					
-					<button id="button">Search</button>
-					
+						<div class="input-wrap">
+							<label for="Country">Country</label>
+							<input type="text" id="country" placeholder="ex. India" value="India" required/>
+							
+						</div>
+						<div class="input-wrap">
+							<label for="City">City</label>
+							<input type="text" id="city" placeholder="ex. Mumbai" value="Mumbai" required/>
+							
+						</div>
+						<div class="input-wrap">
+							<label for="Start-Date">Start Date</label>
+							<input type="date" id="start_date" required/>
+						</div>
+						<div class="input-wrap">
+							<label for="End-Date">End Date</label>
+							<input type="date" id="end_date"placeholder="dd-mm-yyyy" value=""min="1997-01-01" max="2030-12-31"required/>
+						</div>
+						<div >
+							<button class="button" id="submit_button">Search</button>
+						</div>
+
 				</form>
 
 				<div class="result" id="result">
 					<div class="tripDetails">
 						<div class="image">
-							<img src="" id="image" />
+							<img alt="Loading city image" src="" id="image" />
 						</div>
 						<div class="description">
 							<div class="cityName" id="cityName"></div>
@@ -50,6 +52,7 @@
 							</div>
 						</div>
 					</div>
+					<h2>Weather prediction during trip:</h2>
 					<div class="weatherData" id= "weatherData">
 						<div class="item"></div>
 					</div>

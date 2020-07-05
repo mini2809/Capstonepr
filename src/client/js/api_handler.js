@@ -1,7 +1,7 @@
 const Url='http://api.geonames.org/searchJSON?'
 const username = 'mini928'
 
-
+const fetch = require('node-fetch');
 // <--------lat and long fetched from geoname api----------->
 export async function getdataGeoname(city){
 	let obj={}
@@ -26,24 +26,6 @@ export async function getdataWeatherbit(obj , tripDays)
 	return Data;	
 }	
 
-
-export function daysBetweenDates(s_date,e_date){
-	// takes start_date(string) and end_date(string) as input returns number of dats (int)
-	const msPerDay =24 * 60 * 60 * 1000;
-	let start = new Date(s_date).getTime()
-	let end =  new Date(e_date).getTime()
-	if(start > end){
-		return {error: "start date should be less than or euqal to end date"}
-	}
-
-	let diff =  (end - start) / msPerDay;
-	let daysLeft = Math.round(diff)
-	return daysLeft;
-}
-
-export async function randomInteger(min, max) {
-	return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
 
 
