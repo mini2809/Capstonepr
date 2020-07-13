@@ -18,7 +18,7 @@ const key = 'c1d26e97df11444c8fac6881f237df9e'
 const url = 'https://api.weatherbit.io/v2.0/forecast/daily?lat='
 
 // calling weatherbit api for weather forecast
-export async function getdataWeatherbit(obj , tripDays)
+export async function getdataWeatherbit(obj )
 {	
 	let fetchData=await fetch(url+obj.lat+'&lon='+obj.long+'&key='+key)
 	let Data = JSON.parse(await fetchData.text())

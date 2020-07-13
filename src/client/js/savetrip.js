@@ -1,13 +1,13 @@
+import { fetchSaveTrips } from './fetchSaveTrips.js'
 const fetch = require('node-fetch');
-//sending users input to server for calling pixabay api
- export async function postData(url,textObj){
+export async function postTripData(url,Obj){
 	const response = await fetch(url,{
 		method: 'POST',
 		credentials: 'same-origin',
 		headers:{
 			"Content-type":'application/json',
 		},
-		body: JSON.stringify(textObj),
+		body: JSON.stringify(Obj),
 	})
 	try{
 		const newData = await response.json()
@@ -18,7 +18,8 @@ const fetch = require('node-fetch');
 	}
 }
 
- export async function apiPixacall(obj){
-	let data = await postData('http://localhost:8087/getCordinates',obj)
+ export async function saveTrip(obj){
+ 	let data = await postTripData('http://localhost:8087/SaveNewTrips',obj)
+	fetchSaveTrips();
 	return data
 }

@@ -1,0 +1,92 @@
+.modal{
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    top: 0;
+    left: 0;
+    background-color: blue;
+    position: fixed;
+    visibility: hidden;
+    padding-top: 50px;
+    padding-left: 30px;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    background-color: rgba(0,0,0,0.4); 
+    z-index: 1;
+
+}
+
+.modal-wrapper{
+    position: relative; 
+    margin: auto;
+    width: fit-content;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.modal-content{
+    position: relative; 
+    margin: auto;
+    width: fit-content;
+    padding: 20px; 
+    width: fit-content;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+.imageBox{
+    height: 200px;
+    width: 300px;
+}
+
+.descriptionBox{
+    padding-top: 30px;
+    line-height: initial;
+    font-size: 24px;
+    font-family: sans-serif;
+    
+     p{
+        font-size: 15px;
+    }
+
+    .forecastData{
+        font-size: 14px;
+        line-height: 0px;
+        margin: 2px;
+        font-weight: bold;
+    }
+}
+
+.close {
+    padding-right: 8px;
+    padding-top: 12px;
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+    
+    

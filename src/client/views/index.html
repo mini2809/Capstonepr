@@ -10,7 +10,7 @@
 				<h5>A handy tourist-guide</h5>
 			</div>
 			
-			<div class= "main" id="main-content">
+			<div class= "main" id="main-content" >
 				
 				<form class="form-travel" id="form-travel" action="">
 						
@@ -33,12 +33,21 @@
 							<input type="date" id="end_date"placeholder="dd-mm-yyyy" value=""min="1997-01-01" max="2030-12-31"required/>
 						</div>
 						<div >
-							<button class="button" id="submit_button">Search</button>
+							<button class="button" id="submit_button">Add Trip</button>
 						</div>
 
 				</form>
 
-				<div class="result" id="result">
+				<div class="savedTrips" id="savedTrips"></div>
+				<div class="modal">
+					<div class="modal-wrapper">
+						<span class="close">&times;</span>
+						<div class="modal-content">
+							
+						</div>
+					</div>
+				</div>
+				<!-- <div class="result" id="result">
 					<div class="tripDetails">
 						<div class="image">
 							<img alt="Loading city image" src="" id="image" />
@@ -56,8 +65,9 @@
 					<div class="weatherData" id= "weatherData">
 						<div class="item"></div>
 					</div>
-				</div>	
+				</div>	 -->
 			</div>
+
 
 			<div class="footer"></div>
 		</div>

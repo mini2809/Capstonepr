@@ -1,0 +1,42 @@
+.savedTrips{
+	display: flex;
+	flex-direction: row;
+	padding: 10px;
+	margin: 20px;
+	flex-wrap: wrap;
+}
+
+.cardDimension{
+	height: 260px;
+	width: 210px;
+	margin: 30px;
+	border: 1px solid lightgrey; 
+	box-shadow: 1px 1px 1px 1px lightgrey; 
+	text-align: bottom;
+	position: relative;
+	cursor: pointer;
+}
+
+.imageCard{
+	height: 200px;
+	width: 210px;
+	background-size: cover;
+	/*border: 0.5px solid lightgrey;*/
+	filter: brightness(.5);
+	}
+
+.centered {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.child{
+	padding: 25px;
+}
